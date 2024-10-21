@@ -2,7 +2,7 @@
 session_start();
 include('conexao.php');
 
-$email_input = ''; // Variável para manter o valor do e-mail
+$email_input = ''; 
 
 if (isset($_POST['email']) || isset($_POST['senha'])) {
     if (strlen($_POST['email']) == 0) {
@@ -31,7 +31,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             exit();
         } else {
             echo "Falha ao logar! E-mail ou senha incorretos";
-            $email_input = $_POST['email']; // Armazenar o e-mail digitado
+            $email_input = $_POST['email']; 
         }
     }
 }
@@ -62,7 +62,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                     </div>
                     <button type="submit">Fazer login</button>
                     <div class="forgot-password">
-                        <a href="../html/esqueceu_senha.html">Esqueceu a senha?</a>
+                        <a href="forgotPassword.php">Esqueceu a senha?</a>
                     </div>
                 </form>
             </legend>
