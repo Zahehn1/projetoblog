@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #6c788e; /* Cor principal */
+    --hover-color: #a6aec1;   /* Cor ao passar o mouse */
+    --input-border-color: #cfd5e1; /* Cor da borda do input */
+    --input-focus-color: #6c788e;  /* Cor ao focar no input */
+    --label-color: #a6aec1;        /* Cor da label */
+    --background-color: #ededf2;   /* Cor de fundo do body */
+    --form-background-color:#fcfdff ; /* Cor de fundo do formulário */
+    --text-color: #333;  /* Cor do texto */
+
+    --padding-small: 10px;
+    --padding-medium: 12px;
+    --padding-large: 20px;
+
+    --border-radius: 8px;
+    --box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+    --font-size-label: 16px;
+    --font-size-small: 12px;
+    --font-size-medium: 14px;
+    --font-size-large: 16px;
+
+    --transition-time: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+main {
+    background: var(--form-background-color);
+    padding: var(--padding-large);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.input-container {
+    position: relative;
+    margin-bottom: var(--padding-large);
+}
+
+.input-container input {
+    width: 100%;
+    padding: var(--padding-medium);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
+    background-color: transparent;
+    outline: none;
+    color: var(--text-color);
+    transition: border-color var(--transition-time);
+}
+
+.input-container input:focus {
+    border-color: var(--input-focus-color);
+}
+
+
+.input-container label {
+    position: absolute;
+    top: 50%;
+    left: var(--padding-small);
+    transform: translateY(-50%);
+    background-color: var(--form-background-color);
+    padding: 0 var(--padding-small);
+    color: var(--label-color);
+    font-size: var(--font-size-label);
+    pointer-events: none;
+    transition: var(--transition-time) ease all;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: var(--font-size-small);
+    color: var(--input-focus-color);
+}
+
+
+button {
+    width: 100%;
+    padding: var(--padding-small);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    transition: background-color var(--transition-time);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+
+.forgot-password {
+    margin-top: var(--padding-small);
+    text-align: center;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: var(--font-size-medium);
+}
+
+.forgot-password a:hover {
+    color: var(--hover-color);
+}

@@ -1,4 +1,3 @@
-
 <?php 
 include('conexao.php');
 if(isset($_POST['email'])|| isset($_POST['SENHA'])) {
@@ -32,6 +31,7 @@ if(isset($_POST['email'])|| isset($_POST['SENHA'])) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="stylesheet" href="./css/login.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,5 +45,5 @@ if(isset($_POST['email'])|| isset($_POST['SENHA'])) {
         </section>
     </main>
 </body>
-<script src="../html/JS/loginForm.js"></script>
+<script src="../JS/loginForm.js"></script>
 </html>
