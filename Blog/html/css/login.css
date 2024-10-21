@@ -126,3 +126,19 @@ button:hover {
 .forgot-password a:hover {
     color: var(--hover-color);
 }
+
+.register-link {
+    margin-top: var(--padding-small);
+    text-align: center;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: var(--font-size-medium);
+}
+
+.register-link a:hover {
+    color: var(--hover-color);
+}
+

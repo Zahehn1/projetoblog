@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 session_start();
 include('conexao.php');
 
@@ -39,7 +39,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="../html/css/login.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,11 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 <body>
     <main>
         <section>
-            <legend>Realize o seu login.
+         <h2>Faça seu login</h2>
+            <legend>
+             <div class="error-message">
+               <?php if (!empty($error_message)) { echo $error_message; } ?>
+             </div>
                 <form method="POST" action="">
                     <div class="input-container">
                         <input id="email" name="email" type="email" placeholder=" " required value="<?php echo htmlspecialchars($email_input); ?>">
@@ -66,6 +70,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                         <a href="forgotPassword.php">Esqueceu a senha?</a>
                     </div>
                 </form>
+                <div class="register-link">
+                    <a href="register.php">Cadastre-se aqui</a>
+                </div>
             </legend>
         </section>
     </main>
