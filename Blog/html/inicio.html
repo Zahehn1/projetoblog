@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto blog | Inicío</title>
+    <title>Projeto blog | Início</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -18,6 +18,23 @@
             <p>Teste de um artigo</p>
         </h2>
     </article>
+
+    <section>
+        <h2>Faça uma nova postagem</h2>
+        <form method="POST" action="../php/upload_post.php" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="content">Conteúdo:</label>
+            <textarea id="content" name="content" required></textarea>
+
+            <label for="image">Imagem/GIF:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Postar</button>
+        </form>
+    </section>
+
 </body>
 <script src="navbar.js"></script>
 

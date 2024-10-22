@@ -1,7 +1,7 @@
 <?php 
 $host = "localhost";
 $usuario = "root";
-$senha = "usbw"; 
+$senha = ""; 
 $bd = "login";
 
 $mysqli = new mysqli($host, $usuario, $senha , $bd);
