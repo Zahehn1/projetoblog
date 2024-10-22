@@ -1,3 +1,11 @@
+<?php
+session_start();
+include('../php/conexao.php');
+
+$sql = "SELECT p.*, u.nome FROM posts p JOIN usuarios u ON p.user_id = u.id ORDER BY p.created_at DESC";
+$result = $mysqli->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,10 +21,17 @@
         </nav>
         <h1>Posts</h1>
     </header>
+    
     <article>
-        <h2>
-            <p>Teste de um artigo</p>
-        </h2>
+        <?php while ($post = $result->fetch_assoc()): ?>
+            <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+            <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+            <?php if (!empty($post['image_url'])): ?>
+                <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" style="max-width: 100%; height: auto;" />
+            <?php endif; ?>
+            <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
+            <hr>
+        <?php endwhile; ?>
     </article>
 
     <section>
