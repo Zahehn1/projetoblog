@@ -96,6 +96,7 @@ main {
 
 
 button {
+    margin-top: var(--padding-large);
     width: 100%;
     padding: var(--padding-small);
     background-color: var(--primary-color);
@@ -111,45 +112,12 @@ button:hover {
     background-color: var(--hover-color);
 }
 
-
-.forgot-password {
-    margin-top: var(--padding-small);
-    text-align: center;
+.login-link a{
+    
+        text-decoration: underline !important;
+        text-decoration: none;
+        color: var(--primary-color);
 }
-
-.forgot-password a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.forgot-password a:hover {
-    color: var(--hover-color);
-}
-
-.register-link {
-    margin-top: var(--padding-small);
-    text-align: center;
-}
-
-.register-link a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.register-link a:hover {
-    color: var(--hover-color);
-}
-.error-message {
-    color: red;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 14px;
-    background-color: #f8d7da; 
-    padding: 10px;
-    border-radius: var(--border-radius);
-    border: 1px solid #f5c6cb; 
-    width: 100%;
-    display: block;
+.login-link a:hover{
+    color: var(--hover-color)
 }
