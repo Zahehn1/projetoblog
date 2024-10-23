@@ -5,7 +5,7 @@
     --input-focus-color: #6c788e;  /* Cor ao focar no input */
     --label-color: #a6aec1;        /* Cor da label */
     --background-color: #ededf2;   /* Cor de fundo do body */
-    --form-background-color:#fcfdff ; /* Cor de fundo do formulário */
+    --form-background-color: #fcfdff; /* Cor de fundo do formulário */
     --text-color: #333;  /* Cor do texto */
 
     --padding-small: 10px;
@@ -30,7 +30,6 @@
     font-family: Arial, sans-serif;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -51,105 +50,61 @@ h1 {
     color: var(--primary-color);
     font-size: 2rem;
 }
-article {
+
+#posts, #new-post {
     width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     margin: 0 auto; 
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: var(--padding-large);
+    background-color: var(--form-background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--padding-large);
 }
 
-article h2 {
+.post-container h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-article p {
+.post-container p {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: var(--padding-large);
 }
 
-article img {
+.post-container img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 10px 0;
 }
 
-article hr {
+small {
+    font-size: var(--font-size-small);
+    color: var(--label-color);
+}
+
+#posts hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 20px 0;
 }
 
-header h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-}
-small {
-    font-size: var(--font-size-small);
-    color: var(--label-color);
-}
-section {
-    width: 100%;
-    max-width: 800px; 
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-section button {
-    padding: 10px 20px;
-    background-color: #6c788e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-section input[type="text"], section textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-section input[type="file"] {
-    margin-bottom: 20px;
-}
-section button:hover {
-    background-color: #505b70;
-}
-
-section h2 {
+#new-post h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
+#new-post label {
+    display: block;
     font-size: var(--font-size-medium);
     margin-bottom: var(--padding-small);
     color: var(--label-color);
 }
-section label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
 
-form input[type="text"],
-form textarea {
+#new-post input[type="text"], #new-post textarea {
     width: 100%;
     padding: var(--padding-medium);
     border: 1px solid var(--input-border-color);
@@ -162,16 +117,16 @@ form textarea {
     transition: border-color var(--transition-time);
 }
 
-form input[type="text"]:focus,
-form textarea:focus {
+#new-post input[type="text"]:focus,
+#new-post textarea:focus {
     border-color: var(--input-focus-color);
 }
 
-form input[type="file"] {
+#new-post input[type="file"] {
     margin-bottom: var(--padding-large);
 }
 
-form button {
+#new-post button {
     padding: var(--padding-small);
     background-color: var(--primary-color);
     color: white;
@@ -180,8 +135,9 @@ form button {
     font-size: var(--font-size-large);
     cursor: pointer;
     transition: background-color var(--transition-time);
+    width: 100%;  
 }
 
-form button:hover {
+#new-post button:hover {
     background-color: var(--hover-color);
 }

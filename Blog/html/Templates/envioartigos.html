@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,24 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto blog | Início</title>
     <link rel="stylesheet" href="../css/articles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-
+    
     <header>
-        <nav id="navbar">
-        </nav>
+        <nav id="navbar"></nav>
         <h1>Posts</h1>
     </header>
     
-    <article>
+    <section id="posts">
+        <div class="post-container">
             <h2>Derrotado no League Of Legends</h2>
-            <p>Ontem a noite fui jogar com 7 amigos e foi só paulada</p>
-                <img src=""" />
+            <p>Ontem à noite fui jogar com 7 amigos e foi só paulada.</p>
             <p><small>Postado por Samuel Cabral</small></p>
-    <hr>
-    </article>
+        </div>
+        <hr>
+    </section>
+    <section id="posts">
+        <div class="post-container">
+            <h2>Derrotado no League Of Legends</h2>
+            <p>Ontem à noite fui jogar com 7 amigos e foi só paulada.</p>
+            <p><small>Postado por Samuel Cabral</small></p>
+        </div>
+        <hr>
+    </section>
+    <section id="posts">
+        <div class="post-container">
+            <h2>Derrotado no League Of Legends</h2>
+            <p>Ontem à noite fui jogar com 7 amigos e foi só paulada.</p>
+            <p><small>Postado por Samuel Cabral</small></p>
+        </div>
+        <hr>
+    </section>
 
-    <section>
+    <section id="new-post">
         <h2>Faça uma nova postagem</h2>
         <form method="POST" action="../php/upload_post.php" enctype="multipart/form-data">
             <label for="title">Título:</label>
@@ -40,5 +56,6 @@
     </section>
 
 </body>
-<script src="navbar.js"></script>
+<script src="../JS/navbar.js"></script>
+
 </html>

@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #6c788e; /* Cor principal */
+    --hover-color: #a6aec1;   /* Cor ao passar o mouse */
+    --input-border-color: #cfd5e1; /* Cor da borda do input */
+    --input-focus-color: #6c788e;  /* Cor ao focar no input */
+    --label-color: #a6aec1;        /* Cor da label */
+    --background-color: #ededf2;   /* Cor de fundo do body */
+    --form-background-color:#fcfdff ; /* Cor de fundo do formulário */
+    --text-color: #333;  /* Cor do texto */
+
+    --padding-small: 10px;
+    --padding-medium: 12px;
+    --padding-large: 20px;
+
+    --border-radius: 8px;
+    --box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+    --font-size-label: 16px;
+    --font-size-small: 12px;
+    --font-size-medium: 14px;
+    --font-size-large: 16px;
+
+    --transition-time: 0.3s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100vw;  
+    height: 60px;  
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 0 var(--padding-large);  
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: var(--font-size-large);
+    transition: background-color var(--transition-time);
+}
+
+.navbar a:hover {
+    background-color: var(--hover-color);
+    border-radius: var(--border-radius);
+}
