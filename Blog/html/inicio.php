@@ -12,31 +12,33 @@ $result = $mysqli->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto blog | Início</title>
-    <link rel="stylesheet" href="../css/articles.css">
+    <link rel="stylesheet" href="./css/articles.css">
 </head>
 <body>
 
     <header>
-        <nav id="navbar">
+        <nav id="navbar"> 
         </nav>
         <h1>Posts</h1>
     </header>
     
-    <article>
+    <section id="posts">
         <?php while ($post = $result->fetch_assoc()): ?>
-            <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-            <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-            <?php if (!empty($post['image_url'])): ?>
-                <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
-            <?php endif; ?>
-            <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
+            <div class="post-container">
+                <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+                <?php if (!empty($post['image_url'])): ?>
+                    <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
+                <?php endif; ?>
+                <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
+            </div>
             <hr>
         <?php endwhile; ?>
-    </article>
+    </section>
 
-    <section>
+    <section id="new-post">
         <h2>Faça uma nova postagem</h2>
-        <form method="POST" action="../php/upload_post.php" enctype="multipart/form-data">
+        <form method="POST" action="upload_post.php" enctype="multipart/form-data">
             <label for="title">Título:</label>
             <input type="text" id="title" name="title" required>
 
