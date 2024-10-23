@@ -4,7 +4,17 @@ if (!isset($_SESSION['id'])) {
     header("Location: ../html/index.php");
     exit();
 }
+
 include('../php/conexao.php');
+
+$status_message = '';
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 'deleted') {
+        $status_message = "Post apagado com sucesso!";
+    }
+} else if (isset($_GET['error']) && $_GET['error'] == 'unauthorized') {
+    $status_message = "Você não tem permissão para realizar esta ação.";
+}
 
 $sql = "SELECT p.*, u.nome FROM posts p JOIN usuarios u ON p.user_id = u.id ORDER BY p.created_at DESC";
 $result = $mysqli->query($sql);
@@ -24,6 +34,12 @@ $result = $mysqli->query($sql);
         <nav id="navbar"> 
         </nav>
         <h1>Posts</h1>
+
+        <?php if (!empty($status_message)): ?>
+            <div class="status-message">
+                <p><?php echo htmlspecialchars($status_message); ?></p>
+            </div>
+        <?php endif; ?>
     </header>
     
     <section id="posts">
@@ -36,9 +52,13 @@ $result = $mysqli->query($sql);
                 <?php endif; ?>
                 <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
 
+                <?php if (!empty($post['edited_at'])): ?>
+                    <p><small>Editado em <?php echo date('d/m/Y H:i', strtotime($post['edited_at'])); ?></small></p>
+                <?php endif; ?>
+
                 <?php if ($_SESSION['id'] == $post['user_id']): ?>
-                    <a href="editar_post.php?id=<?php echo $post['id']; ?>">Editar</a>
-                    <a href="apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Apagar</a>
+                    <a href="../php/editar_post.php?id=<?php echo $post['id']; ?>">Editar</a>
+                    <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Apagar</a> 
                 <?php endif; ?>
             </div>
             <hr>
@@ -47,7 +67,7 @@ $result = $mysqli->query($sql);
 
     <section id="new-post">
         <h2>Faça uma nova postagem</h2>
-        <form method="POST" action="upload_post.php" enctype="multipart/form-data">
+        <form method="POST" action="../php/upload_post.php" enctype="multipart/form-data">
             <label for="title">Título:</label>
             <input type="text" id="title" name="title" required>
 
