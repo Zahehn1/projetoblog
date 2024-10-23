@@ -1,10 +1,3 @@
-<?php
-session_start();
-include('../php/conexao.php');
-
-$sql = "SELECT p.*, u.nome FROM posts p JOIN usuarios u ON p.user_id = u.id ORDER BY p.created_at DESC";
-$result = $mysqli->query($sql);
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,15 +16,11 @@ $result = $mysqli->query($sql);
     </header>
     
     <article>
-        <?php while ($post = $result->fetch_assoc()): ?>
-            <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-            <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-            <?php if (!empty($post['image_url'])): ?>
-                <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
-            <?php endif; ?>
-            <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
-            <hr>
-        <?php endwhile; ?>
+            <h2>Derrotado no League Of Legends</h2>
+            <p>Ontem a noite fui jogar com 7 amigos e foi só paulada</p>
+                <img src=""" />
+            <p><small>Postado por Samuel Cabral</small></p>
+    <hr>
     </article>
 
     <section>
