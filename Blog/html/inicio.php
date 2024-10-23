@@ -27,6 +27,15 @@ $result = $mysqli->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto blog | Início</title>
     <link rel="stylesheet" href="./css/articles.css">
+    <script>
+        function toggleEdit(postId) {
+            const postContent = document.getElementById(`post-content-${postId}`);
+            const editForm = document.getElementById(`edit-form-${postId}`);
+            const isEditing = editForm.style.display === 'block';
+            postContent.style.display = isEditing ? 'block' : 'none';
+            editForm.style.display = isEditing ? 'none' : 'block';
+        }
+    </script>
 </head>
 <body>
 
@@ -44,22 +53,35 @@ $result = $mysqli->query($sql);
     
     <section id="posts">
         <?php while ($post = $result->fetch_assoc()): ?>
-            <div class="post-container">
-                <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-                <?php if (!empty($post['image_url'])): ?>
-                    <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
-                <?php endif; ?>
-                <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
+            <div class="post-container" id="post-<?php echo $post['id']; ?>">
+                <div id="post-content-<?php echo $post['id']; ?>">
+                    <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+                    <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
+                    <?php if (!empty($post['image_url'])): ?>
+                        <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
+                    <?php endif; ?>
+                    <p><small>Postado por <?php echo htmlspecialchars($post['nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['created_at'])); ?></small></p>
 
-                <?php if (!empty($post['edited_at'])): ?>
-                    <p><small>Editado em <?php echo date('d/m/Y H:i', strtotime($post['edited_at'])); ?></small></p>
-                <?php endif; ?>
+                    <?php if (!empty($post['edited_at'])): ?>
+                        <p><small>Editado em <?php echo date('d/m/Y H:i', strtotime($post['edited_at'])); ?></small></p>
+                    <?php endif; ?>
 
-                <?php if ($_SESSION['id'] == $post['user_id']): ?>
-                    <a href="../php/editar_post.php?id=<?php echo $post['id']; ?>">Editar</a>
-                    <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Apagar</a> 
-                <?php endif; ?>
+                    <?php if ($_SESSION['id'] == $post['user_id']): ?>
+                        <button onclick="toggleEdit(<?php echo $post['id']; ?>)">Editar</button>
+                        <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Apagar</a> 
+                    <?php endif; ?>
+                </div>
+
+                <form method="POST" action="../php/editar_post.php?id=<?php echo $post['id']; ?>" style="display:none;" id="edit-form-<?php echo $post['id']; ?>">
+                    <label for="title">Título:</label>
+                    <input type="text" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required>
+
+                    <label for="content">Conteúdo:</label>
+                    <textarea name="content" required><?php echo htmlspecialchars($post['content']); ?></textarea>
+
+                    <button type="submit">Salvar Alterações</button>
+                    <button type="button" onclick="toggleEdit(<?php echo $post['id']; ?>)">Cancelar</button>
+                </form>
             </div>
             <hr>
         <?php endwhile; ?>
