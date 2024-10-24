@@ -44,19 +44,19 @@ if (isset($_GET['id']) && isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Post</title>
-    <link rel="stylesheet" href="../css/editArticle.css"> <!-- Link atualizado -->
+    <link rel="stylesheet" href="../css/editArticle.css"> 
 </head>
 <body>
-    <div class="article-editor-container"> <!-- Nome da classe alterado -->
+    <div class="article-editor-container"> 
         <h2>Editar Post</h2>
         <form method="POST">
             <label for="title">Título:</label>
-            <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required class="input-title"> <!-- Classe alterada -->
+            <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($post['title']); ?>" required class="input-title"> 
 
             <label for="content">Conteúdo:</label>
-            <textarea id="content" name="content" required class="textarea-content"><?php echo htmlspecialchars($post['content']); ?></textarea> <!-- Classe alterada -->
+            <textarea id="content" name="content" required class="textarea-content"><?php echo htmlspecialchars($post['content']); ?></textarea> 
 
-            <button type="submit" class="submit-button">Salvar Alterações</button> <!-- Classe alterada -->
+            <button type="submit" class="submit-button">Salvar Alterações</button> 
         </form>
     </div>
 </body>
