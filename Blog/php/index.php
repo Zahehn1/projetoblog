@@ -50,7 +50,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <main>
         <section>
             <h2>Faça seu login</h2>
-            <div class="error-message">
+            <div class="error-message" style="display: <?php echo !empty($error_message) ? 'block' : 'none'; ?>;">
                 <?php echo $error_message; ?>
             </div>
             <form method="POST" action="">

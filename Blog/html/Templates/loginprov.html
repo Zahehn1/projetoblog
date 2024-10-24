@@ -1,41 +1,38 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css"> <!-- Link para o CSS -->
-    <link rel="stylesheet" href="../css/navbar.css">
     <title>Projeto blog | Login</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <main>
         <section>
             <h2>Faça seu login</h2>
-            <div class="error-message">
-                <?php echo $error_message; ?>
-            </div>
-            <form method="POST" action="">
-                <div class="input-container">
-                    <label for="email">Digite seu e-mail</label>
-                    <input id="email" name="email" type="email" required value="<?php echo htmlspecialchars($email_input); ?>">
+            <legend>
+                <div class="error-message" id="error-message" style="display: none;">
                 </div>
-                
-                <div class="input-container">
-                    <label for="password">Digite sua senha</label>
-                    <input id="password" name="senha" type="password" required>
-                </div>
-                <button type="submit">Fazer login</button>
-                <div class="forgot-password">
-                    <a href="forgotPassword.php">Esqueceu a senha?</a>
-                </div>
-            </form>
-            <div class="register-link">
-                <a href="register.php">Cadastre-se aqui</a>
-            </div>
+                <form method="POST" action="">
+                    <div class="input-container">
+                        <input id="email" name="email" type="email" placeholder=" " required>
+                        <label for="email">Digite seu e-mail</label>
+                    </div>
+
+                    <div class="input-container">
+                        <input id="password" name="senha" type="password" placeholder=" " required>
+                        <label for="password">Digite sua senha</label>
+                    </div>
+                    <button type="submit">Fazer login</button>
+                    <div class="forgot-password">
+                        <a href="../html/esqueceu_senha.html">Esqueceu a senha?</a>
+                    </div>
+                    <div class="register-link">
+                        <a href="register.php">Cadastre-se aqui</a>
+                    </div>
+                </form>
+            </legend>
         </section>
     </main>
-    <script src="../JS/navbar.js"></script>
 </body>
-</html>
+</html> 

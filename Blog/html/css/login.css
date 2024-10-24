@@ -113,6 +113,7 @@ button:hover {
     text-align: center;
 }
 
+
 .forgot-password a,
 .register-link a {
     text-decoration: none;
@@ -130,7 +131,6 @@ button:hover {
     margin-top: var(--padding-small);
     text-align: center;
 }
-
 .error-message {
     color: red;
     text-align: center;
