@@ -1,9 +1,12 @@
 // navbar de navegação
 const navbar = `
-        <nav class="navbar">
+<div class= "navbar">
+        <nav>
             <a href="../php/index.php">Início</a>
-            <a href="../Templates/envioartigos.html">Artigos</a>
+            <a href="./Templates/envioartigos.html">Artigos</a>
             <a href="../aboutus.html">Sobre nós</a>
-        </nav>`;
+        </nav>
+     
+</div>`;
 
 document.getElementById("navbar").innerHTML = navbar;

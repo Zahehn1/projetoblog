@@ -5,7 +5,7 @@
     --input-focus-color: #6c788e;  /* Cor ao focar no input */
     --label-color: #a6aec1;        /* Cor da label */
     --background-color: #ededf2;   /* Cor de fundo do body */
-    --form-background-color:#fcfdff ; /* Cor de fundo do formulário */
+    --form-background-color: #fcfdff; /* Cor de fundo do formulário */
     --text-color: #333;  /* Cor do texto */
 
     --padding-small: 10px;
@@ -38,7 +38,7 @@ body {
     background-color: var(--background-color);
 }
 
-h2{
+h2 {
     margin-bottom: 10px;
 }
 
@@ -50,7 +50,6 @@ main {
     width: 100%;
     max-width: 400px;
 }
-
 
 .input-container {
     position: relative;
@@ -73,7 +72,6 @@ main {
     border-color: var(--input-focus-color);
 }
 
-
 .input-container label {
     position: absolute;
     top: 50%;
@@ -94,7 +92,6 @@ main {
     color: var(--input-focus-color);
 }
 
-
 button {
     width: 100%;
     padding: var(--padding-small);
@@ -111,19 +108,21 @@ button:hover {
     background-color: var(--hover-color);
 }
 
-
 .forgot-password {
     margin-top: var(--padding-small);
     text-align: center;
 }
 
-.forgot-password a {
+.forgot-password a,
+.register-link a {
     text-decoration: none;
     color: var(--primary-color);
     font-size: var(--font-size-medium);
+    transition: color var(--transition-time);
 }
 
-.forgot-password a:hover {
+.forgot-password a:hover,
+.register-link a:hover {
     color: var(--hover-color);
 }
 
@@ -132,22 +131,13 @@ button:hover {
     text-align: center;
 }
 
-.register-link a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: var(--font-size-medium);
-}
-
-.register-link a:hover {
-    color: var(--hover-color);
-}
 .error-message {
     color: red;
     text-align: center;
     margin-bottom: 20px;
     font-size: 14px;
     background-color: #f8d7da; 
-    padding: 10px;
+    padding: var(--padding-small);
     border-radius: var(--border-radius);
     border: 1px solid #f5c6cb; 
     width: 100%;

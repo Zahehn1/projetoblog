@@ -52,3 +52,11 @@ body {
     background-color: var(--hover-color);
     border-radius: var(--border-radius);
 }
+
+.tituloNav{
+    width: 100vw;  
+    height: 60px;  
+    background-color: var(--primary-color);
+    display: flex;
+    padding: 0 var(--padding-large);  
+}

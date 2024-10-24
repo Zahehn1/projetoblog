@@ -39,10 +39,10 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<link rel="stylesheet" href="../html/css/login.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../html/css/login.css"> <!-- Link para o CSS -->
     <link rel="stylesheet" href="../css/navbar.css">
     <title>Projeto blog | Login</title>
 </head>
@@ -50,31 +50,29 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <main>
         <section>
             <h2>Faça seu login</h2>
-            <legend>
-                <div class="error-message">
-                    <?php if (!empty($error_message)) { echo $error_message; } ?>
+            <div class="error-message">
+                <?php echo $error_message; ?>
+            </div>
+            <form method="POST" action="">
+                <div class="input-container">
+                    <label for="email">Digite seu e-mail</label>
+                    <input id="email" name="email" type="email" required value="<?php echo htmlspecialchars($email_input); ?>">
                 </div>
-                <form method="POST" action="">
-                    <div class="input-container">
-                        <input id="email" name="email" type="email" placeholder=" " required value="<?php echo htmlspecialchars($email_input); ?>">
-                        <label for="email">Digite seu e-mail</label>
-                    </div>
-                    
-                    <div class="input-container">
-                        <input id="password" name="senha" type="password" placeholder=" " required>
-                        <label for="password">Digite sua senha</label>
-                    </div>
-                    <button type="submit">Fazer login</button>
-                    <div class="forgot-password">
-                        <a href="forgotPassword.php">Esqueceu a senha?</a>
-                    </div>
-                </form>
-                <div class="register-link">
-                    <a href="register.php">Cadastre-se aqui</a>
+                
+                <div class="input-container">
+                    <label for="password">Digite sua senha</label>
+                    <input id="password" name="senha" type="password" required>
                 </div>
-            </legend>
+                <button type="submit">Fazer login</button>
+                <div class="forgot-password">
+                    <a href="forgotPassword.php">Esqueceu a senha?</a>
+                </div>
+            </form>
+            <div class="register-link">
+                <a href="register.php">Cadastre-se aqui</a>
+            </div>
         </section>
     </main>
+    <script src="../JS/navbar.js"></script>
 </body>
-<script src="../JS/navbar.js"></script>
 </html>
