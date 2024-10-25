@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto blog | Início</title>
+    <link rel="stylesheet" href="../css/articles.css">
+    <script>
+        function toggleEdit(postId) {
+            const postContent = document.getElementById(`post-content-${postId}`);
+            const editForm = document.getElementById(`edit-form-${postId}`);
+            const isEditing = editForm.style.display === 'block';
+            postContent.style.display = isEditing ? 'block' : 'none';
+            editForm.style.display = isEditing ? 'none' : 'block';
+            
+            // Fechar o menu ao editar
+            const menu = document.getElementById(`menu-${postId}`);
+            menu.style.display = 'none'; // Esconder o menu ao editar
+        }
+
+        function toggleMenu(postId) {
+            const menu = document.getElementById(`menu-${postId}`);
+            const isVisible = menu.style.display === 'block';
+            // Esconder todos os menus
+            const menus = document.querySelectorAll('.dropdown-menu');
+            menus.forEach(m => m.style.display = 'none');
+
+            // Mostrar o menu do post clicado
+            menu.style.display = isVisible ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <nav id="navbar"></nav>
+        <h1>Posts</h1>
+
+        <div class="status-message">
+            <p>Post apagado com sucesso!</p>
+        </div>
+    </header>
+    
+    <section id="posts">
+        
+        <div class="post-container" id="post-1">
+            <div id="post-content-1">
+                <h2>Título do Post</h2>
+                <div class="menu-container">
+                    <button class="menu-button" onclick="toggleMenu(1)">&#8942;</button>
+                    <div class="dropdown-menu" id="menu-1" style="display:none;">
+                        <button onclick="toggleEdit(1)">Editar</button>
+                        <a href="#" onclick="return confirm('Tem certeza que deseja apagar este post?');">Excluir</a>
+                    </div>
+                </div>
+            </div>
+                <p>Conteúdo do post de exemplo. Este é apenas um texto mockado para teste.</p>
+                <img src="https://via.placeholder.com/800x400" alt="Imagem do post" />
+                <p><small>Postado por João em 22/10/2024 14:30</small></p>
+                <p><small>Editado em 23/10/2024 15:00</small></p>
+
+                
+
+            <form method="POST" action="#" style="display:none;" id="edit-form-1">
+                <label for="title">Título:</label>
+                <input type="text" name="title" value="Título do Post" required>
+
+                <label for="content">Conteúdo:</label>
+                <textarea name="content" required>Conteúdo do post de exemplo. Este é apenas um texto mockado para teste.</textarea>
+
+                <button type="submit">Salvar Alterações</button>
+                <button type="button" onclick="toggleEdit(1)">Cancelar</button>
+            </form>
+        </div>
+        <hr>
+
+        <div class="post-container" id="post-2">
+            <div id="post-content-2">
+                <h2>Outro Título de Post</h2>
+                <div class="menu-container">
+                    <button class="menu-button" onclick="toggleMenu(2)">&#8942;</button>
+                    <div class="dropdown-menu" id="menu-2" style="display:none;">
+                        <button onclick="toggleEdit(2)">Editar</button>
+                        <a href="#" onclick="return confirm('Tem certeza que deseja apagar este post?');">Excluir</a>
+                    </div>
+                </div>
+                
+                <p>Outro conteúdo de post de exemplo. Apenas para teste de layout.</p>
+                <p><small>Postado por Maria em 21/10/2024 10:15</small></p>
+
+                
+                </div>
+            </div>
+
+            <form method="POST" action="#" style="display:none;" id="edit-form-2">
+                <label for="title">Título:</label>
+                <input type="text" name="title" value="Outro Título de Post" required>
+
+                <label for="content">Conteúdo:</label>
+                <textarea name="content" required>Outro conteúdo de post de exemplo. Apenas para teste de layout.</textarea>
+
+                <button type="submit">Salvar Alterações</button>
+                <button type="button" onclick="toggleEdit(2)">Cancelar</button>
+            </form>
+        </div>
+        <hr>
+    </section>
+
+    <section id="new-post">
+        <h2>Faça uma nova postagem</h2>
+        <form method="POST" action="#" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="content">Conteúdo:</label>
+            <textarea id="content" name="content" required></textarea>
+
+            <label for="image">Imagem/GIF:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Postar</button>
+        </form>
+    </section>
+
+</body>
+<script src="navbar.js"></script>
+</html>

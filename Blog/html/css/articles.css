@@ -37,7 +37,6 @@ body {
     background-color: var(--background-color);
     margin: 0;
     padding: var(--padding-large);
-    font-family: Arial, sans-serif;
     color: var(--text-color);
 }
 
@@ -91,7 +90,6 @@ small {
     margin: 20px 0;
 }
 
-
 #new-post h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -104,7 +102,8 @@ small {
     color: var(--label-color);
 }
 
-#new-post input[type="text"], #new-post textarea {
+#new-post input[type="text"], 
+#new-post textarea {
     width: 100%;
     padding: var(--padding-medium);
     border: 1px solid var(--input-border-color);
@@ -140,4 +139,119 @@ small {
 
 #new-post button:hover {
     background-color: var(--hover-color);
+}
+
+.edit-button {
+    padding: var(--padding-small);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background-color var(--transition-time), transform var(--transition-time);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.edit-button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.edit-button:active {
+    background-color: var(--primary-color);
+    transform: scale(0.95);
+}
+
+form[id^="edit-form-"] {
+    display: none;
+    margin-top: var(--padding-large);
+}
+
+form[id^="edit-form-"] label {
+    display: block;
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--padding-small);
+    color: var(--label-color);
+}
+
+form[id^="edit-form-"] input[type="text"],
+form[id^="edit-form-"] textarea {
+    width: 100%;
+    padding: var(--padding-medium);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
+    background-color: transparent;
+    color: var(--text-color);
+    margin-bottom: var(--padding-large);
+    outline: none;
+    transition: border-color var(--transition-time);
+}
+
+form[id^="edit-form-"] button {
+    padding: var(--padding-small);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-large);
+    cursor: pointer;
+    transition: background-color var(--transition-time);
+    width: auto;
+    margin-right: 10px;
+}
+
+form[id^="edit-form-"] button:hover {
+    background-color: var(--hover-color);
+}
+.menu-container {
+    position: relative; 
+}
+
+.menu-button {
+    background-color: transparent; 
+    border: none; 
+    color: var(--primary-color); 
+    font-size: var(--font-size-large); 
+    cursor: pointer; 
+    transition: color var(--transition-time);
+}
+
+.menu-button:hover {
+    color: var(--hover-color); 
+}
+
+
+.dropdown-menu {
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    width: 150px; 
+    background-color: var(--form-background-color); 
+    border-radius: var(--border-radius); 
+    box-shadow: var(--box-shadow); 
+    z-index: 1000; 
+}
+
+
+.dropdown-menu button,
+.dropdown-menu a {
+    display: block; 
+    width: 100%; 
+    padding: var(--padding-medium); 
+    text-align: left; 
+    color: var(--text-color); 
+    background-color: transparent; 
+    border: none; 
+    font-size: var(--font-size-medium); 
+    cursor: pointer;
+    transition: background-color var(--transition-time);
+}
+
+.dropdown-menu button:hover,
+.dropdown-menu a:hover {
+    background-color: var(--hover-color); 
+    color: white; 
 }

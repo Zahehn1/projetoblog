@@ -35,6 +35,20 @@ $result = $mysqli->query($sql);
             postContent.style.display = isEditing ? 'block' : 'none';
             editForm.style.display = isEditing ? 'none' : 'block';
         }
+
+        function toggleMenu(postId) {
+            const menu = document.getElementById(`menu-${postId}`);
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-button')) {
+                const dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    dropdowns[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -67,8 +81,13 @@ $result = $mysqli->query($sql);
                     <?php endif; ?>
 
                     <?php if ($_SESSION['id'] == $post['user_id']): ?>
-                        <button onclick="toggleEdit(<?php echo $post['id']; ?>)">Editar</button>
-                        <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Apagar</a> 
+                        <div class="menu-container">
+                            <button class="three-dots-button" onclick="toggleMenu(<?php echo $post['id']; ?>)">&#8942;</button>
+                            <div class="dropdown-menu" id="menu-<?php echo $post['id']; ?>" style="display:none;">
+                                <button class="edit-button" onclick="toggleEdit(<?php echo $post['id']; ?>)">Editar</button>
+                                <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" class="delete-button" onclick="return confirm('Tem certeza que deseja apagar este post?');">Excluir</a>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 </div>
 
