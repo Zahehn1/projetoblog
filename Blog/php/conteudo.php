@@ -1,5 +1,7 @@
 <?php 
 include('conexao.php'); 
+include('protect.php');
+
 
 
 $sql = "SELECT * FROM posts ORDER BY created_at DESC";

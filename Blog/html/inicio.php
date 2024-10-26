@@ -6,6 +6,8 @@ if (!isset($_SESSION['id'])) {
 }
 
 include('../php/conexao.php');
+include('../php/protect.php');
+
 
 $status_message = '';
 if (isset($_GET['status'])) {

@@ -1,5 +1,7 @@
 <?php
 include('conexao.php'); 
+include('protect.php');
+
 
 $sql = "SELECT posts.*, usuarios.nome FROM posts JOIN usuarios ON posts.user_id = usuarios.id ORDER BY created_at DESC";
 $result = $mysqli->query($sql);
@@ -18,4 +20,4 @@ if ($result && $result->num_rows > 0) {
 } else {
     echo '<p>Nenhum post encontrado.</p>';
 }
-?>
+

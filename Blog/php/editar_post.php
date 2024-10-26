@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('conexao.php');
+include('protect.php');
+
 
 if (isset($_GET['id']) && isset($_SESSION['id'])) {
     $post_id = $_GET['id'];

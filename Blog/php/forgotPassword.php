@@ -1,5 +1,7 @@
 <?php 
 include('conexao.php');
+include('protect.php');
+
 $erro = []; 
 
 if (isset($_POST['ok'])) {

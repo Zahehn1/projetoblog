@@ -1,6 +1,8 @@
 <?php
 session_start();
 include('conexao.php');
+include('protect.php');
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
