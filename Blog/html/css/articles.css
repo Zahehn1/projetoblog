@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #6c788e; /* Cor principal */
-    --hover-color: #a6aec1;   /* Cor ao passar o mouse */
-    --input-border-color: #cfd5e1; /* Cor da borda do input */
-    --input-focus-color: #6c788e;  /* Cor ao focar no input */
-    --label-color: #a6aec1;        /* Cor da label */
-    --background-color: #ededf2;   /* Cor de fundo do body */
-    --form-background-color: #fcfdff; /* Cor de fundo do formulário */
-    --text-color: #333;  /* Cor do texto */
+    --primary-color: #6c788e;
+    --hover-color: #a6aec1;
+    --input-border-color: #cfd5e1;
+    --input-focus-color: #6c788e;
+    --label-color: #a6aec1;
+    --background-color: #ededf2;
+    --form-background-color: #fcfdff;
+    --text-color: #333;
 
     --padding-small: 10px;
     --padding-medium: 12px;
@@ -61,9 +61,16 @@ h1 {
     margin-bottom: var(--padding-large);
 }
 
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .post-container h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    flex-grow: 1;
 }
 
 .post-container p {
@@ -206,8 +213,10 @@ form[id^="edit-form-"] button {
 form[id^="edit-form-"] button:hover {
     background-color: var(--hover-color);
 }
+
 .menu-container {
     position: relative; 
+    margin-left: auto;
 }
 
 .menu-button {
@@ -223,7 +232,6 @@ form[id^="edit-form-"] button:hover {
     color: var(--hover-color); 
 }
 
-
 .dropdown-menu {
     position: absolute; 
     top: 100%; 
@@ -234,7 +242,6 @@ form[id^="edit-form-"] button:hover {
     box-shadow: var(--box-shadow); 
     z-index: 1000; 
 }
-
 
 .dropdown-menu button,
 .dropdown-menu a {
@@ -248,6 +255,7 @@ form[id^="edit-form-"] button:hover {
     font-size: var(--font-size-medium); 
     cursor: pointer;
     transition: background-color var(--transition-time);
+    text-decoration: none;
 }
 
 .dropdown-menu button:hover,

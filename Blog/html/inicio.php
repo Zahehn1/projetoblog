@@ -54,8 +54,7 @@ $result = $mysqli->query($sql);
 <body>
 
     <header>
-        <nav id="navbar"> 
-        </nav>
+        <nav id="navbar"></nav>
         <h1>Posts</h1>
 
         <?php if (!empty($status_message)): ?>
@@ -68,8 +67,19 @@ $result = $mysqli->query($sql);
     <section id="posts">
         <?php while ($post = $result->fetch_assoc()): ?>
             <div class="post-container" id="post-<?php echo $post['id']; ?>">
-                <div id="post-content-<?php echo $post['id']; ?>">
+                <div class="post-header">
                     <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+                    <?php if ($_SESSION['id'] == $post['user_id']): ?>
+                        <div class="menu-container">
+                            <button class="menu-button" onclick="toggleMenu(<?php echo $post['id']; ?>)">&#8942;</button>
+                            <div class="dropdown-menu" id="menu-<?php echo $post['id']; ?>" style="display:none;">
+                                <button onclick="toggleEdit(<?php echo $post['id']; ?>)">Editar</button>
+                                <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" onclick="return confirm('Tem certeza que deseja apagar este post?');">Excluir</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div id="post-content-<?php echo $post['id']; ?>">
                     <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
                     <?php if (!empty($post['image_url'])): ?>
                         <img src="../<?php echo htmlspecialchars($post['image_url']); ?>" alt="Imagem do post" />
@@ -78,16 +88,6 @@ $result = $mysqli->query($sql);
 
                     <?php if (!empty($post['edited_at'])): ?>
                         <p><small>Editado em <?php echo date('d/m/Y H:i', strtotime($post['edited_at'])); ?></small></p>
-                    <?php endif; ?>
-
-                    <?php if ($_SESSION['id'] == $post['user_id']): ?>
-                        <div class="menu-container">
-                            <button class="three-dots-button" onclick="toggleMenu(<?php echo $post['id']; ?>)">&#8942;</button>
-                            <div class="dropdown-menu" id="menu-<?php echo $post['id']; ?>" style="display:none;">
-                                <button class="edit-button" onclick="toggleEdit(<?php echo $post['id']; ?>)">Editar</button>
-                                <a href="../php/apagar_post.php?id=<?php echo $post['id']; ?>" class="delete-button" onclick="return confirm('Tem certeza que deseja apagar este post?');">Excluir</a>
-                            </div>
-                        </div>
                     <?php endif; ?>
                 </div>
 
