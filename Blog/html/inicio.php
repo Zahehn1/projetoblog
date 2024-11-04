@@ -7,6 +7,8 @@ if (!isset($_SESSION['id'])) {
 
 include('../php/conexao.php');
 include('../php/protect.php');
+include('../php/navbar.php');
+
 
 
 $status_message = '';
@@ -29,6 +31,8 @@ $result = $mysqli->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto blog | Início</title>
     <link rel="stylesheet" href="./css/articles.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+
     <script>
         function toggleEdit(postId) {
             const postContent = document.getElementById(`post-content-${postId}`);
@@ -56,7 +60,6 @@ $result = $mysqli->query($sql);
 <body>
 
     <header>
-        <nav id="navbar"></nav>
         <h1>Posts</h1>
 
         <?php if (!empty($status_message)): ?>
@@ -125,5 +128,4 @@ $result = $mysqli->query($sql);
     </section>
 
 </body>
-<script src="navbar.js"></script>
 </html>

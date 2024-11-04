@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('conexao.php');
-
+include ('navbar.php'); 
 
 $email_input = ''; 
 $error_message = '';
@@ -39,10 +39,11 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../html/css/login.css">
-    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../html/css/navbar.css">
     <title>Projeto blog | Login</title>
 </head>
 <body>
+
     <main>
         <section>
             <h2>Faça seu login</h2>
@@ -69,6 +70,6 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             </form>
         </section>
     </main>
-    <script src="../JS/navbar.js"></script>
 </body>
 </html>
+ 
