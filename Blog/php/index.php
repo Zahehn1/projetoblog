@@ -21,12 +21,6 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
         if ($quantidade == 1) {
             $usuario = $sql_query->fetch_assoc();
-
-            // Verifica se a sessão já foi iniciada
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['name'] = $usuario['nome'];
             header("Location: ../html/inicio.php");
